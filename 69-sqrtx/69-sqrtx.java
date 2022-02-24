@@ -6,16 +6,15 @@ class Solution {
             return x;
         
         // lower bond = 1
-        // end = number
-        int start = 1, end = x;
-        while (start < end) {
-            int mid = start + (end - start) / 2 + 1;
-            if (x / mid >= mid) 
-                start = mid;
+        int l = 1, r = x;
+        while (l < r) {
+            int m = l + (r - l) / 2 + 1;
+            if (x / m >= m) 
+                l = m;
             else 
-                end = mid - 1;
+                r = m - 1;
         }
-        return start;
+        return l;
     }
        
 }
