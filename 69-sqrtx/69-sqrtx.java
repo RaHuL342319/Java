@@ -1,27 +1,17 @@
 class Solution {
     public int mySqrt(int x) {
         // binary search algoritm
-        
-        long start = 1;
-        long end = x;
-        int ans=0;
-        
-        if (x == 0 || x == 1)
+        if(x==0)
             return x;
-        
-        while(start<= end){
-            
-            // find mid
-            long mid = start + (end-start)/2;
-            
-            if(mid*mid <= x){
-                start = mid+1;
-                ans = (int)mid;
-            }
-            else{
-                end = mid -1;
-            }
+        int l = 1, r = x;
+        while (l < r) {
+            int m = l + (r - l) / 2 + 1;
+            if (x / m >= m) 
+                l = m;
+            else 
+                r = m - 1;
         }
-        return ans;
+        return l;
     }
+       
 }
